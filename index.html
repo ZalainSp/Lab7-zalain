@@ -31,7 +31,7 @@
 
         const lat = data.latitude;
         const lon = data.longitude;
-        const weatherAPIKey = '7b1ab6bcee26bb6752d085950d4aead9';
+        const weatherAPIKey = '3cee41501b694e71f3b64648ddfd313b';
         return fetch('https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherAPIKey}&units=metric');
       })
       .then(response => response.json())
@@ -44,3 +44,7 @@
         ipDisplay.textContent = 'Error fetching your IP';
         locationDisplay.textContent = 'Error fetching your location';
         weatherDisplay.textContent = 'Error fetching your weather';
+      });
+  </script>
+</body>
+</html>
