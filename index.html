@@ -39,14 +39,15 @@
         // API 3: Get Weather Based on IP Location (Latitude and Longitude)
         const weatherApiKey = 'a4893076a9msh62d25f4fb2e35b2p1d6a0cjsn6ee5ab92d0e1'; // Replace with your RapidAPI key
         const weatherResponseIP = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric`, {
-          method: 'GET',
-          headers: {
-            'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
-            'x-rapidapi-key': weatherApiKey
-          }
-        });
-        const weatherDataIP = await weatherResponseIP.json();
-        document.getElementById('weatherFromIP').textContent = `Temperature: ${weatherDataIP.main.temp}°C, Weather: ${weatherDataIP.weather[0].description}`;
+  method: 'GET',
+  headers: {
+    'x-rapidapi-host': 'open-weather-map.p.rapidapi.com',
+    'x-rapidapi-key': weatherApiKey
+  }
+});
+const weatherDataIP = await weatherResponseIP.json();
+console.log(weatherDataIP); // Check what is returned
+document.getElementById('weatherFromIP').textContent = `Temperature: ${weatherDataIP.main.temp}°C, Weather: ${weatherDataIP.weather[0].description}`;
 
         // API 4: Get Weather Based on the City Name
         const weatherResponseLocation = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${locationData.city}&units=metric`, {
