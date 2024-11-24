@@ -24,18 +24,18 @@
 
     <script>
       async function getData() {
-        // API 1: Get Public IP Address
+       
         const ipResponse = await fetch('https://api64.ipify.org?format=json');
         const ipData = await ipResponse.json();
         document.getElementById('ip').textContent = `Your IP: ${ipData.ip}`;
 
-        // API 2: Get Location Based on IP Address
+       
         const locationResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
         const locationData = await locationResponse.json();
         document.getElementById('location').textContent = `City: ${locationData.city}, Country: ${locationData.country_name}`;
 
-        // API 3: Get Weather Based on IP Location (Latitude and Longitude)
-        const weatherApiKey = '044e648b19mshfece6f865ead2b3p1a1a7ajsn036a4345378f'; // Your RapidAPI Key
+     
+        const weatherApiKey = '044e648b19mshfece6f865ead2b3p1a1a7ajsn036a4345378f'; 
         const weatherResponseIP = await fetch(`https://open-weather-map.p.rapidapi.com/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric`, {
           method: 'GET',
           headers: {
@@ -44,10 +44,10 @@
           }
         });
         const weatherDataIP = await weatherResponseIP.json();
-        console.log(weatherDataIP); // Log the data for debugging
+        console.log(weatherDataIP); 
         document.getElementById('weatherFromIP').textContent = `Temperature: ${weatherDataIP.main.temp}°C, Weather: ${weatherDataIP.weather[0].description}`;
 
-        // API 4: Get Weather Based on the City Name
+      
         const weatherResponseLocation = await fetch(`https://open-weather-map.p.rapidapi.com/weather?q=${locationData.city}&units=metric`, {
           method: 'GET',
           headers: {
@@ -56,11 +56,10 @@
           }
         });
         const weatherDataLocation = await weatherResponseLocation.json();
-        console.log(weatherDataLocation); // Log the data for debugging
+        console.log(weatherDataLocation); 
         document.getElementById('weatherFromLocation').textContent = `Temperature: ${weatherDataLocation.main.temp}°C, Weather: ${weatherDataLocation.weather[0].description}`;
       }
 
-      // Run the function
       getData().catch(err => {
         console.error('Error occurred:', err);
       });
