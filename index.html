@@ -41,7 +41,7 @@
         const weatherResponseIP = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric`, {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+            'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
             'x-rapidapi-key': weatherApiKey
           }
         });
@@ -52,7 +52,7 @@
         const weatherResponseLocation = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${locationData.city}&units=metric`, {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+            'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
             'x-rapidapi-key': weatherApiKey
           }
         });
