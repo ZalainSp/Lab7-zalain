@@ -35,7 +35,7 @@
         document.getElementById('location').textContent = `City: ${locationData.city}, Country: ${locationData.country_name}`;
 
      
-        const weatherApiKey = 'a4893076a9msh62d25f4fb2e35b2p1d6a0cjsn6ee5ab92d0e1'; 
+        const weatherApiKey = '044e648b19mshfece6f865ead2b3p1a1a7ajsn036a4345378f'; 
         const weatherResponseIP = await fetch(`https://open-weather-map.p.rapidapi.com/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric`, {
           method: 'GET',
           headers: {
